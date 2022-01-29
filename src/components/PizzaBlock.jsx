@@ -1,6 +1,9 @@
 import React from 'react';
+// import { createStore } from 'redux';
+
 import classNames from 'classnames';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+
 
 function PizzaBlock({ name, imageUrl, price, types, sizes }) {
     const availableTypes = ["тонкое", "традиционное"];
