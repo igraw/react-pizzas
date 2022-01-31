@@ -1,21 +1,13 @@
 import React from 'react';
 
-const Categories = React.memo(function Categories({ items, onClickItems }) {
-    const [activeItem, setActiveItem] = React.useState(null)
-
-    const onSelectItem = (index) => {
-        setActiveItem(index);
-        onClickItems(index);
-    };
-
-    console.log("RERENDER")
+const Categories = React.memo(function Categories({ activeCategory, items, onClickCategory }) {
 
     return (
         <div className="categories">
             <ul>
                 <li
-                    className={activeItem === null ? 'active' : ''}
-                    onClick={() => onSelectItem(null)}
+                    className={activeCategory === null ? 'active' : ''}
+                    onClick={() => onClickCategory(null)}
                 >
                     Все
                 </li>
@@ -23,8 +15,8 @@ const Categories = React.memo(function Categories({ items, onClickItems }) {
                     items.map((name, index) => (
                         <li
                             key={`${name}_${index}`}
-                            className={activeItem === index ? 'active' : ''}
-                            onClick={() => onSelectItem(index)}
+                            className={activeCategory === index ? 'active' : ''}
+                            onClick={() => onClickCategory(index)}
                         >
                             {name}
                         </li>
@@ -33,5 +25,6 @@ const Categories = React.memo(function Categories({ items, onClickItems }) {
         </div >
     )
 })
+
 
 export default Categories
